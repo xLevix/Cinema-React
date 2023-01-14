@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
     Progress,
     Box,
@@ -23,6 +23,8 @@ import { useToast } from '@chakra-ui/react';
 import axios from "axios";
 import authHeader from "../services/auth-header";
 import { format } from 'date-fns'
+import {findDOMNode} from "react-dom";
+import AuthService from "../services/auth.service";
 
 export default function SubFilm(props) {
     const toast = useToast();
@@ -32,10 +34,13 @@ export default function SubFilm(props) {
     const [seanse, setSeanse] = useState([]);
     const [choosenSeans, setChoosenSeans] = useState(null);
     const [seansInfo, setSeansInfo] = useState(null);
+    const [name, setName] = useState("");
 
     // let takenSeats = [];
     const [seatsTaken, setSeatsTaken] = useState([]);
     const [clickedSeats, setClickedSeats] = useState([]);
+
+    const currentUser = AuthService.getCurrentUser();
 
     const loadSeanse = () =>{
         axios.get("http://localhost:8080/filmy/"+ props.id +"/seanse", { headers: authHeader() })
@@ -74,12 +79,53 @@ export default function SubFilm(props) {
             });
     }
 
+    const required = value => {
+        if (!value) {
+            return (
+                <div className="alert alert-danger" role="alert">
+                    This field is required!
+                </div>
+            );
+        }
+    };
+
+
+    function onChangeInput(e) {
+        setName(e.target.value);
+    }
+
 
     useEffect(() => {
         loadSeanse();
 
+        console.log('mount');
     }, []);
 
+
+    function handleSubmit() {
+        clickedSeats.map((seat) => {
+            axios.post("http://localhost:8080/rezerwacja/add", {
+                "name": name,
+                "lastName": name.split(" ")[1],
+                "seatNumber": seat,
+                "idScreening": choosenSeans,
+                "userId": currentUser.id
+            }, { headers: authHeader() })
+                .then(response => {
+                    console.log(response.data);
+                    toast({
+                        title: "Rezerwacja zakończona.",
+                        description: "Zarezerwowano miejsce: " + seat,
+                        status: "success",
+                        duration: 9000,
+                        isClosable: true,
+                    })
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        })
+    }
 
     const Form1 = () => {
         const [show, setShow] = React.useState(false);
@@ -90,18 +136,17 @@ export default function SubFilm(props) {
                     Kup bilet
                 </Heading>
                 <Flex>
-                    <FormControl mr="5%">
+                    <FormControl mr="5%" key="name1">
                         <FormLabel htmlFor="first-name" fontWeight={'normal'}>
-                            Imie
+                            Imie i Nazwisko
                         </FormLabel>
-                        <Input id="first-name" placeholder="First name" />
-                    </FormControl>
+                        <Input id="first-name" placeholder=""
+                               name="name"
+                               value={name}
+                               onChange={onChangeInput}
+                               autoFocus={true}
+                        />
 
-                    <FormControl>
-                        <FormLabel htmlFor="last-name" fontWeight={'normal'}>
-                            Nazwisko
-                        </FormLabel>
-                        <Input id="last-name" placeholder="First name" />
                     </FormControl>
                 </Flex>
                 <FormControl as={GridItem} colSpan={[6, 3]}>
@@ -124,6 +169,8 @@ export default function SubFilm(props) {
                         onChange={(e) => {
                             setChoosenSeans(e.target.value);
                             loadSeansInfo(e.target.value);
+                            setSeatsTaken(() => []);
+                            loadSeatsTaken(e.target.value);
                         }}
                         value={choosenSeans}
                         shadow="sm"
@@ -197,10 +244,7 @@ export default function SubFilm(props) {
                     Wybierz miejsce
                 </Heading>
                 <SimpleGrid columns={4} spacing={6}>
-
                         {seansInfo && (
-
-                            loadSeatsTaken(choosenSeans),
                             createSeats(seansInfo.seats)
                         )}
                 </SimpleGrid>
@@ -264,6 +308,7 @@ export default function SubFilm(props) {
                                 colorScheme="red"
                                 variant="solid"
                                 onClick={() => {
+                                    handleSubmit();
                                     toast({
                                         title: 'Zakup udany.',
                                         description: "Dziekujemy :).",

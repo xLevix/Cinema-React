@@ -75,27 +75,25 @@ export default function Film() {
                                     }}>
                                         Buy ticket
                                     </Button>
-
-                                    <Modal
-                                        initialFocusRef={initialRef}
-                                        finalFocusRef={finalRef}
-                                        isOpen={isOpen}
-                                        onClose={onClose}
-                                    >
-                                        <ModalOverlay />
-                                        <ModalContent>
-                                            <ModalHeader>Formularz</ModalHeader>
-                                            <ModalCloseButton />
-                                            <ModalBody pb={10}>
-                                                <SubFilm id={choosenFilm} />
-                                            </ModalBody>
-                                        </ModalContent>
-                                    </Modal>
-
                                 </ButtonGroup>
                             </CardFooter>
                         </Card>
                     ))}
+                    <Modal
+                        initialFocusRef={initialRef}
+                        finalFocusRef={finalRef}
+                        isOpen={isOpen}
+                        onClose={onClose}
+                    >
+                        <ModalOverlay />
+                        <ModalContent>
+                            <ModalHeader>Formularz</ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody pb={10}>
+                                <SubFilm id={choosenFilm} />
+                            </ModalBody>
+                        </ModalContent>
+                    </Modal>
                 </SimpleGrid>
             </div>
         )
