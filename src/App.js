@@ -17,6 +17,7 @@ import Register3 from "./components/register3.js";
 import Login2 from "./components/login2";
 import Filmy from "./components/Film";
 import DodajFilm from "./components/dodajFilm";
+import Rezerwacje from "./components/Rezerwacje";
 
 // import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
@@ -164,6 +165,7 @@ class App extends Component {
             <Route path="/profile" element={<Profile />} />
             <Route path="/filmy" element={<Filmy />} />
             <Route path="/filmy/add" element={<DodajFilm />} />
+            <Route path="/rezerwacje" element={<Rezerwacje />} />
             <Route path="/user" element={<BoardUser />} />
             <Route path="/mod" element={<BoardModerator />} />
             <Route path="/admin" element={<BoardAdmin />} />
