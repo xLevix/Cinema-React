@@ -26,7 +26,7 @@ import axios from "axios";
 import authHeader from "../services/auth-header";
 import SubFilm from "./SubFilm";
 
-export default function Film() {
+export default function Film(props) {
     const [films, setFilms] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -38,7 +38,7 @@ export default function Film() {
     const [choosenFilm, setChoosenFilm] = useState("");
 
     useEffect(() => {
-        axios.get('http://localhost:8080/filmy', { headers: authHeader() })
+        axios.get(props.url, { headers: authHeader() })
             .then(response => {
                 setFilms(response.data);
                 setLoading(false);

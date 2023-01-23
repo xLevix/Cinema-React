@@ -229,6 +229,9 @@ export default function SubFilm(props) {
                 colorScheme="green"
                 variant="solid"
                 size="md"
+                onClick={() => {
+                    setClickedSeats(clickedSeats.filter(item => item !== seat));
+                } }
             >
                 {seat}
             </Button>
@@ -316,6 +319,9 @@ export default function SubFilm(props) {
                                         duration: 3000,
                                         isClosable: true,
                                     });
+                                    setTimeout(() => {
+                                        window.location.replace('http://localhost:8081/rezerwacje');
+                                    }, 1500);
                                 }}>
                                 Submit
                             </Button>

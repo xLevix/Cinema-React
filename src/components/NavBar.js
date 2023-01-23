@@ -300,6 +300,10 @@ const NAV_ITEMS: Array<NavItem> = [
                 label: 'Dodaj film',
                 href: '/filmy/add',
             },
+            {
+                label: 'Wyszukaj film',
+                href: '/filmy/search',
+            },
         ],
     },
     {
@@ -309,10 +313,6 @@ const NAV_ITEMS: Array<NavItem> = [
                 label: 'Twoje rezerwacje',
                 href: '/rezerwacje',
             },
-            {
-                label: 'Dodaj rezerwacje',
-                href: '/rezerwacje/add',
-            }
         ],
     },
     {

@@ -22,6 +22,7 @@ import Rezerwacje from "./components/Rezerwacje";
 // import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
 import NavBar from "./components/NavBar";
+import SearchFilm from "./components/SearchFilm";
 
 class App extends Component {
   constructor(props) {
@@ -163,8 +164,9 @@ class App extends Component {
             <Route path="/register2" element={<Register2 />} />
             <Route path="/register3" element={<Register3 />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/filmy" element={<Filmy />} />
+            <Route path="/filmy" element={<Filmy url={'http://localhost:8080/filmy'} />} />
             <Route path="/filmy/add" element={<DodajFilm />} />
+            <Route path="/filmy/search" element={<SearchFilm />} />
             <Route path="/rezerwacje" element={<Rezerwacje />} />
             <Route path="/user" element={<BoardUser />} />
             <Route path="/mod" element={<BoardModerator />} />
