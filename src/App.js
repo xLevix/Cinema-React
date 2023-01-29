@@ -23,6 +23,9 @@ import Rezerwacje from "./components/Rezerwacje";
 import EventBus from "./common/EventBus";
 import NavBar from "./components/NavBar";
 import SearchFilm from "./components/SearchFilm";
+import DodajSeans from "./components/dodajSeans";
+import ZmienSeans from "./components/zmienSeans";
+import AuthVerify from "./common/auth-verify";
 
 class App extends Component {
   constructor(props) {
@@ -75,98 +78,19 @@ class App extends Component {
 
         </NavBar>
 
-        {/*<nav className="navbar navbar-expand navbar-dark bg-dark">*/}
-        {/*  <Link to={"/"} className="navbar-brand">*/}
-        {/*    bezKoder*/}
-        {/*  </Link>*/}
-        {/*  <div className="navbar-nav mr-auto">*/}
-        {/*    <li className="nav-item">*/}
-        {/*      <Link to={"/home"} className="nav-link">*/}
-        {/*        Home*/}
-        {/*      </Link>*/}
-        {/*    </li>*/}
-
-        {/*    {showModeratorBoard && (*/}
-        {/*      <li className="nav-item">*/}
-        {/*        <Link to={"/mod"} className="nav-link">*/}
-        {/*          Moderator Board*/}
-        {/*        </Link>*/}
-        {/*      </li>*/}
-        {/*    )}*/}
-
-        {/*    {showAdminBoard && (*/}
-        {/*      <li className="nav-item">*/}
-        {/*        <Link to={"/admin"} className="nav-link">*/}
-        {/*          Admin Board*/}
-        {/*        </Link>*/}
-        {/*      </li>*/}
-        {/*    )}*/}
-
-        {/*    {currentUser && (*/}
-        {/*      <li className="nav-item">*/}
-        {/*        <Link to={"/user"} className="nav-link">*/}
-        {/*          User*/}
-        {/*        </Link>*/}
-        {/*      </li>*/}
-        {/*    )}*/}
-        {/*  </div>*/}
-
-        {/*  {currentUser ? (*/}
-        {/*    <div className="navbar-nav ml-auto">*/}
-        {/*      <li className="nav-item">*/}
-        {/*        <Link to={"/profile"} className="nav-link">*/}
-        {/*          {currentUser.username}*/}
-        {/*        </Link>*/}
-        {/*      </li>*/}
-        {/*      <li className="nav-item">*/}
-        {/*        <a href="/login" className="nav-link" onClick={this.logOut}>*/}
-        {/*          LogOut*/}
-        {/*        </a>*/}
-        {/*      </li>*/}
-        {/*    </div>*/}
-        {/*  ) : (*/}
-        {/*    <div className="navbar-nav ml-auto">*/}
-        {/*      <li className="nav-item">*/}
-        {/*        <Link to={"/login"} className="nav-link">*/}
-        {/*          Login*/}
-        {/*        </Link>*/}
-        {/*      </li>*/}
-
-        {/*      <li className="nav-item">*/}
-        {/*        <Link to={"/register"} className="nav-link">*/}
-        {/*          Sign Up*/}
-        {/*        </Link>*/}
-        {/*      </li>*/}
-
-        {/*      <li className="nav-item">*/}
-        {/*        <Link to={"/register2"} className="nav-link">*/}
-        {/*          Sign Up2*/}
-        {/*        </Link>*/}
-        {/*      </li>*/}
-
-        {/*      <li className="nav-item">*/}
-        {/*        <Link to={"/register3"} className="nav-link">*/}
-        {/*          Sign Up3*/}
-        {/*        </Link>*/}
-        {/*      </li>*/}
-
-        {/*    </div>*/}
-        {/*  )}*/}
-        {/*</nav>*/}
 
         <div className="container mt-3">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/login2" element={<Login2 />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/register2" element={<Register2 />} />
             <Route path="/register3" element={<Register3 />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/filmy" element={<Filmy url={'http://localhost:8080/filmy'} />} />
             <Route path="/filmy/add" element={<DodajFilm />} />
             <Route path="/filmy/search" element={<SearchFilm />} />
+            <Route path="/seanse/add" element={<DodajSeans />} />
+            <Route path="/seanse/modify" element={<ZmienSeans />} />
             <Route path="/rezerwacje" element={<Rezerwacje />} />
             <Route path="/user" element={<BoardUser />} />
             <Route path="/mod" element={<BoardModerator />} />
@@ -174,7 +98,7 @@ class App extends Component {
           </Routes>
         </div>
 
-        {/* <AuthVerify logOut={this.logOut}/> */}
+        {<AuthVerify logOut={this.logOut}/>}
       </div>
     );
   }

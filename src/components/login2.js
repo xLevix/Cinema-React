@@ -120,13 +120,6 @@ class Login extends Component {
                                     </div>
 
                                     <Stack spacing={6}>
-                                        <Stack
-                                            direction={{ base: 'column', sm: 'row' }}
-                                            align={'start'}
-                                            justify={'space-between'}>
-                                            <Checkbox>Remember me</Checkbox>
-                                            <Link color={'blue.500'}>Forgot password?</Link>
-                                        </Stack>
                                         <Button colorScheme={'blue'} variant={'solid'}
                                                 disabled={this.state.loading}
                                                 type="submit"

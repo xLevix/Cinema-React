@@ -178,9 +178,12 @@ export default function SubFilm(props) {
                         w="full"
                         rounded="md">
                         {seanse && (
-                            seanse.map((seans) => (
-                                <option key={seans.id} value={seans.id}>{format(new Date(seans.date), 'MMMM Do, yyyy H:mma')}</option>
-                            ))
+                            seanse.filter((seans) => {
+                                return new Date(seans.date) > new Date();
+                            }).map((seans) => {
+                                return <option key={seans.id} value={seans.id}>{format(new Date(seans.date), 'MMMM Do, yyyy H:mma')}</option>
+                            }
+                            )
                         )}
 
                     </Select>

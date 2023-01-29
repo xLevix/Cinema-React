@@ -234,7 +234,7 @@ export default class Register extends Component {
                                             </Stack>
                                             <Stack pt={6}>
                                                 <Text align={'center'}>
-                                                    Already a user? <Link href={'/login'} color={'blue.400'}>Login</Link>
+                                                    Already a user? <Link href={'/login2'} color={'blue.400'}>Login</Link>
                                                 </Text>
                                             </Stack>
                                         </Stack>

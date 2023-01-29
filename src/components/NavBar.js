@@ -288,17 +288,13 @@ interface NavItem {
     href?: string;
 }
 
-const NAV_ITEMS: Array<NavItem> = [
+let NAV_ITEMS: Array<NavItem> = [
     {
         label: 'Filmy',
         children: [
             {
                 label: 'Lista filmow',
                 href: '/filmy',
-            },
-            {
-                label: 'Dodaj film',
-                href: '/filmy/add',
             },
             {
                 label: 'Wyszukaj film',
@@ -319,8 +315,28 @@ const NAV_ITEMS: Array<NavItem> = [
         label: 'Profil',
         href: '/profile',
     },
-    {
-        label: 'Kontakt',
-        href: '/contact',
-    },
 ];
+
+if (currentUser){
+    if (currentUser.roles[1] === 'ROLE_MODERATOR'){
+        NAV_ITEMS.push({
+            label: 'Admin/Mod',
+            children: [
+                {
+                    label: 'Dodaj film',
+                    href: '/filmy/add',
+                },
+                {
+                    label: 'Dodaj seans',
+                    href: '/seanse/add',
+                },
+                {
+                    label: 'Zmodyfikuj seans',
+                    href: '/seanse/modify',
+                },
+            ],
+        });
+    }
+}
+
+

@@ -1,20 +1,10 @@
 import {
-    Heading,
-    Avatar,
-    Box,
     Center,
-    Text,
-    Stack,
-    Button,
-    Link,
-    Badge,
-    useColorModeValue, FormControl, FormLabel, Input, FormErrorMessage, SimpleGrid,
+    Button, FormControl, FormLabel, Input, FormErrorMessage, SimpleGrid,
 } from '@chakra-ui/react';
 
 import { Formik, Form, Field } from 'formik';
-import {useState} from "react";
 import Film from "./Film";
-
 
 export default function WyszuakjFilm() {
 
@@ -26,9 +16,6 @@ export default function WyszuakjFilm() {
         return error
     }
 
-    const [search, setSearch] = useState('');
-
-
     return (
         <Center py={6}>
             <FormControl isRequired>
@@ -36,8 +23,9 @@ export default function WyszuakjFilm() {
                     initialValues={{ name: '' }}
                     onSubmit={(values, actions) => {
                         setTimeout(() => {
-                            setSearch(values.name);
+                            localStorage.setItem('search', values.name);
                             actions.setSubmitting(false);
+                            window.location.reload();
                         }, 1000)
                     }}
                 >
@@ -63,10 +51,10 @@ export default function WyszuakjFilm() {
                         </Form>
                     )}
                 </Formik>
+                <SimpleGrid columns={3} spacing={20}>
+                    {localStorage.getItem('search') && <Film url={'http://localhost:8080/filmy/search/'+localStorage.getItem('search')}/>}
+                </SimpleGrid>
             </FormControl>
-            <SimpleGrid columns={3} spacing={20}>
-            {search && <Film url={'http://localhost:8080/filmy/search/'+search}/>} </SimpleGrid>
         </Center>
-
     );
 }

@@ -36,7 +36,7 @@ export default function Rezerwacje() {
     }, []);
 
     var takenSeats = "";
-    const grouped = _.groupBy(rezerwacje, rezerwacja => rezerwacja.idScreening.idMovie.id);
+    const grouped = _.groupBy(rezerwacje, rezerwacja => rezerwacja.idScreening.id);
 
     const pdfStyles = StyleSheet.create({
         page: {
