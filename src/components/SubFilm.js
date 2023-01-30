@@ -43,7 +43,7 @@ export default function SubFilm(props) {
     const currentUser = AuthService.getCurrentUser();
 
     const loadSeanse = () =>{
-        axios.get("http://localhost:8080/filmy/"+ props.id +"/seanse", { headers: authHeader() })
+        axios.get("https://kino-spring.herokuapp.com/filmy/"+ props.id +"/seanse", { headers: authHeader() })
             .then(response => {
                 response.data.map((seans) => {
                     console.log(response.data);
@@ -56,7 +56,7 @@ export default function SubFilm(props) {
     }
 
     const loadSeansInfo = (id) => {
-        axios.get("http://localhost:8080/seanse/"+id, { headers: authHeader() })
+        axios.get("https://kino-spring.herokuapp.com/seanse/"+id, { headers: authHeader() })
             .then(response => {
                 console.log(response.data);
                 setSeansInfo(response.data);
@@ -67,7 +67,7 @@ export default function SubFilm(props) {
     }
 
     const loadSeatsTaken = (id) => {
-        axios.get("http://localhost:8080/seanse/"+id+"/rezerwacje", { headers: authHeader() })
+        axios.get("https://kino-spring.herokuapp.com/seanse/"+id+"/rezerwacje", { headers: authHeader() })
             .then(response => {
                 console.log(response.data);
                 response.data.map((seat) => {
@@ -104,7 +104,7 @@ export default function SubFilm(props) {
 
     function handleSubmit() {
         clickedSeats.map((seat) => {
-            axios.post("http://localhost:8080/rezerwacja/add", {
+            axios.post("https://kino-spring.herokuapp.com/rezerwacja/add", {
                 "name": name,
                 "lastName": name.split(" ")[1],
                 "seatNumber": seat,

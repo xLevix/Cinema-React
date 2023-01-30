@@ -19,7 +19,7 @@ export default function Rezerwacje() {
     const [rezerwacje, setRezerwacje] = useState([]);
 
     const loadRezerwacje = () => {
-        axios.get("http://localhost:8080/rezerwacje/user/"+ currentUser.id, { headers: authHeader() })
+        axios.get("https://kino-spring.herokuapp.com/rezerwacje/user/"+ currentUser.id, { headers: authHeader() })
             .then(response => {
                 response.data.map((rezerwacja) => {
                     setRezerwacje(rezerwacje => [...rezerwacje, rezerwacja]);

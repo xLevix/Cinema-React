@@ -39,7 +39,7 @@ export default class ZmienSeans extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/seanse', { headers: authHeader() })
+        axios.get('https://kino-spring.herokuapp.com/seanse', { headers: authHeader() })
             .then(response => {
                 this.setState({ seanse: response.data })
             })
@@ -51,7 +51,7 @@ export default class ZmienSeans extends Component {
 
 
     loadInfo(id) {
-        axios.get('http://localhost:8080/seanse/'+id, { headers: authHeader() })
+        axios.get('https://kino-spring.herokuapp.com/seanse/'+id, { headers: authHeader() })
             .then(response => {
                 this.setState({ seans_info: response.data })
             })
@@ -100,7 +100,7 @@ export default class ZmienSeans extends Component {
         this.form.validateAll();
 
         if (this.checkBtn.context._errors.length === 0) {
-            axios.put('http://localhost:8080/seanse/modify/'+this.state.seans_info.id, {
+            axios.put('https://kino-spring.herokuapp.com/seanse/modify/'+this.state.seans_info.id, {
                     date: this.state.date,
                     price: this.state.price,
                     seats: this.state.seats,

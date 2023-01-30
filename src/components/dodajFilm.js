@@ -14,37 +14,6 @@ import {
 import axios from "axios";
 import authHeader from "../services/auth-header";
 
-// const required = value => {
-//     if (!value) {
-//         return (
-//             <div className="alert alert-danger" role="alert">
-//                 This field is required!
-//             </div>
-//         );
-//     }
-// };
-//
-//
-// const vusername = value => {
-//     if (value.length < 3 || value.length > 20) {
-//         return (
-//             <div className="alert alert-danger" role="alert">
-//                 The username must be between 3 and 20 characters.
-//             </div>
-//         );
-//     }
-// };
-//
-// const vpassword = value => {
-//     if (value.length < 6 || value.length > 40) {
-//         return (
-//             <div className="alert alert-danger" role="alert">
-//                 The password must be between 6 and 40 characters.
-//             </div>
-//         );
-//     }
-// };
-
 export default class DodajFilm extends Component {
     constructor(props) {
         super(props);
@@ -107,7 +76,7 @@ export default class DodajFilm extends Component {
         this.form.validateAll();
 
         if (this.checkBtn.context._errors.length === 0) {
-            axios.post("http://localhost:8080/filmy/add", {
+            axios.post("https://kino-spring.herokuapp.com/filmy/add", {
                 name: this.state.name,
                 description: this.state.description,
                 pegi: this.state.pegi,

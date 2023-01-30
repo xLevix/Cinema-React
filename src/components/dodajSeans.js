@@ -36,7 +36,7 @@ export default class DodajSeans extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/filmy', { headers: authHeader() })
+        axios.get('https://kino-spring.herokuapp.com/filmy', { headers: authHeader() })
             .then(response => {
                 this.setState({ films: response.data })
             })
@@ -86,7 +86,7 @@ export default class DodajSeans extends Component {
         if (this.checkBtn.context._errors.length === 0) {
 
             if (this.checkAll()){
-                axios.post("http://localhost:8080/seanse/add", {
+                axios.post("https://kino-spring.herokuapp.com/seanse/add", {
                         idMovie: this.state.film,
                         date: this.state.date,
                         price: this.state.price,
