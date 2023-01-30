@@ -36,17 +36,17 @@ export default function Rezerwacje() {
 
     let takenSeats = "";
     const grouped = _.groupBy(rezerwacje, rezerwacja => rezerwacja.idScreening.id);
-    StyleSheet.create({
-        page: {
-            flexDirection: 'row',
-            backgroundColor: '#E4E4E4'
-        },
-        section: {
-            margin: 10,
-            padding: 10,
-            flexGrow: 1
-        }
-    });
+    // StyleSheet.create({
+    //     page: {
+    //         flexDirection: 'row',
+    //         backgroundColor: '#E4E4E4'
+    //     },
+    //     section: {
+    //         margin: 10,
+    //         padding: 10,
+    //         flexGrow: 1
+    //     }
+    // });
     return (
         <Stack spacing={4} align={"center"}>
             <Heading fontSize={"4xl"}>Twoje rezerwacje</Heading>
