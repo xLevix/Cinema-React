@@ -325,7 +325,7 @@ export default function SubFilm(props) {
                                         isClosable: true,
                                     });
                                     setTimeout(() => {
-                                        window.location.replace('http://localhost:8081/rezerwacje');
+                                        window.location.replace('https://kino-spring.herokuapp.com/rezerwacje');
                                     }, 1500);
                                 }}>
                                 Submit

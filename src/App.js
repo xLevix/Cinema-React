@@ -86,7 +86,7 @@ class App extends Component {
             <Route path="/login2" element={<Login2 />} />
             <Route path="/register3" element={<Register3 />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/filmy" element={<Filmy url={'http://localhost:8080/filmy'} />} />
+            <Route path="/filmy" element={<Filmy url={'https://kino-spring.herokuapp.com/filmy'} />} />
             <Route path="/filmy/add" element={<DodajFilm />} />
             <Route path="/filmy/search" element={<SearchFilm />} />
             <Route path="/seanse/add" element={<DodajSeans />} />

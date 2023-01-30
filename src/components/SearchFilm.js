@@ -52,7 +52,7 @@ export default function WyszuakjFilm() {
                     )}
                 </Formik>
                 <SimpleGrid columns={3} spacing={20}>
-                    {localStorage.getItem('search') && <Film url={'http://localhost:8080/filmy/search/'+localStorage.getItem('search')}/>}
+                    {localStorage.getItem('search') && <Film url={'https://kino-spring.herokuapp.com/filmy/search/'+localStorage.getItem('search')}/>}
                 </SimpleGrid>
             </FormControl>
         </Center>
