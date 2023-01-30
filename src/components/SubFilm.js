@@ -317,7 +317,7 @@ export default function SubFilm(props) {
                                         isClosable: true,
                                     });
                                     setTimeout(() => {
-                                        window.location.replace('https://kino-spring.herokuapp.com/rezerwacje');
+                                        window.location.replace('https://kino-react.herokuapp.com/rezerwacje');
                                     }, 1500);
                                 }}>
                                 Submit
