@@ -318,7 +318,7 @@ let NAV_ITEMS: Array<NavItem> = [
 ];
 
 if (currentUser){
-    if (currentUser.roles[1] === 'ROLE_MODERATOR'){
+    if (currentUser.roles.includes('ROLE_ADMIN') || currentUser.roles.includes('ROLE_MODERATOR')){
         NAV_ITEMS.push({
             label: 'Admin/Mod',
             children: [
