@@ -181,7 +181,9 @@ export default function SubFilm(props) {
                             seanse.filter((seans) => {
                                 return new Date(seans.date) > new Date();
                             }).map((seans) => {
-                                return <option key={seans.id} value={seans.id}>{format(new Date(seans.date), 'MMMM Do, yyyy H:mma')}</option>
+                                return <option key={seans.id} value={seans.id}>{format(new Date(seans.date), ' \t\n' +
+                                    '\n' +
+                                    'dd/mm/yy H:mma')}</option>
                             }
                             )
                         )}
