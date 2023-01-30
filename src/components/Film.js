@@ -1,6 +1,5 @@
 import {
     Card,
-    CardHeader,
     CardBody,
     CardFooter,
     Text,
@@ -18,17 +17,15 @@ import {
     ModalContent,
     ModalBody,
     ModalCloseButton,
-    FormLabel,
-    FormControl, Input, ModalFooter
 } from '@chakra-ui/react'
-import {Component, useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import authHeader from "../services/auth-header";
 import SubFilm from "./SubFilm";
 
 export default function Film(props) {
     const [films, setFilms] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [setLoading] = useState(true);
 
     const { isOpen, onOpen, onClose } = useDisclosure()
 

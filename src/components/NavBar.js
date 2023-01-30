@@ -21,7 +21,6 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
 } from '@chakra-ui/icons';
-import {useContext, useEffect} from "react";
 import AuthService from "../services/auth.service";
 
 let currentUser = AuthService.getCurrentUser();

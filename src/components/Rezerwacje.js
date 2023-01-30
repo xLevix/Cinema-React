@@ -11,7 +11,6 @@ import authHeader from "../services/auth-header";
 import AuthService from "../services/auth.service";
 import {format} from "date-fns";
 import _ from "lodash";
-import ReactPDF, { Page, View, Document, StyleSheet } from '@react-pdf/renderer';
 
 export default function Rezerwacje() {
 
@@ -35,10 +34,9 @@ export default function Rezerwacje() {
         loadRezerwacje();
     }, []);
 
-    var takenSeats = "";
+    let takenSeats = "";
     const grouped = _.groupBy(rezerwacje, rezerwacja => rezerwacja.idScreening.id);
-
-    const pdfStyles = StyleSheet.create({
+    StyleSheet.create({
         page: {
             flexDirection: 'row',
             backgroundColor: '#E4E4E4'
@@ -49,20 +47,6 @@ export default function Rezerwacje() {
             flexGrow: 1
         }
     });
-
-    const MyDocument = () => (
-        <Document>
-            <Page size="A4" style={pdfStyles.page}>
-                <View style={pdfStyles.section}>
-                    <Text>Section #1</Text>
-                </View>
-                <View style={pdfStyles.section}>
-                    <Text>Section #2</Text>
-                </View>
-            </Page>
-        </Document>
-    );
-
     return (
         <Stack spacing={4} align={"center"}>
             <Heading fontSize={"4xl"}>Twoje rezerwacje</Heading>

@@ -6,7 +6,7 @@ import CheckButton from "react-validation/build/button";
 import AuthService from "../services/auth.service";
 
 import { withRouter } from '../common/with-router';
-import {Button, Checkbox, Flex, FormControl, FormLabel, Heading, Image, Link, Stack} from "@chakra-ui/react";
+import {Button, Flex, FormControl, FormLabel, Heading, Image, Stack} from "@chakra-ui/react";
 
 const required = value => {
     if (!value) {

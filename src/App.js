@@ -1,25 +1,19 @@
-import React, {Component, useEffect} from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import React, {Component} from "react";
+import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import AuthService from "./services/auth.service";
-
-import Login from "./components/login.component";
-import Register from "./components/register.component";
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
-import Register2 from "./components/Register2.js";
 import Register3 from "./components/register3.js";
 import Login2 from "./components/login2";
 import Filmy from "./components/Film";
 import DodajFilm from "./components/dodajFilm";
 import Rezerwacje from "./components/Rezerwacje";
-
-// import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
 import NavBar from "./components/NavBar";
 import SearchFilm from "./components/SearchFilm";
@@ -70,14 +64,10 @@ class App extends Component {
   }
 
   render() {
-    const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
-
     return (
       <div>
         <NavBar>
-
         </NavBar>
-
 
         <div className="container mt-3">
           <Routes>

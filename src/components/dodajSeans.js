@@ -8,7 +8,7 @@ import {
     FormLabel,
     Heading, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Select,
     Stack,
-    Text, Textarea
+    Text
 } from "@chakra-ui/react";
 
 import axios from "axios";
@@ -95,7 +95,7 @@ export default class DodajSeans extends Component {
                         headers: authHeader()
                     }
                 ).then(
-                    response => {
+                    () => {
                         this.setState({
                             message: 'Dodano seans',
                             successful: true

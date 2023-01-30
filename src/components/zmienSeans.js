@@ -6,9 +6,9 @@ import {
     Box, Button, Flex,
     FormControl,
     FormLabel,
-    Heading, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Select,
+    Heading, Select,
     Stack,
-    Text, Textarea
+    Text,
 } from "@chakra-ui/react";
 
 import axios from "axios";
@@ -107,7 +107,7 @@ export default class ZmienSeans extends Component {
                     idMovie: this.state.seans_info.idMovie.id,
                 }, { headers: authHeader() }
             ).then(
-                response => {
+                () => {
                     this.setState({
                         message: 'Dodano seans',
                         successful: true

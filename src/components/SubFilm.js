@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Progress,
     Box,
@@ -12,18 +12,12 @@ import {
     Input,
     Select,
     SimpleGrid,
-    InputLeftAddon,
-    InputGroup,
-    Textarea,
-    FormHelperText,
-    InputRightElement,
 } from '@chakra-ui/react';
 
 import { useToast } from '@chakra-ui/react';
 import axios from "axios";
 import authHeader from "../services/auth-header";
 import { format } from 'date-fns'
-import {findDOMNode} from "react-dom";
 import AuthService from "../services/auth.service";
 
 export default function SubFilm(props) {
@@ -128,8 +122,6 @@ export default function SubFilm(props) {
     }
 
     const Form1 = () => {
-        const [show, setShow] = React.useState(false);
-        const handleClick = () => setShow(!show);
         return (
             <>
                 <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
