@@ -90,7 +90,8 @@ export default class DodajFilm extends Component {
                     this.setState({
                         message: response.data.message,
                         successful: true
-                    });
+                    }, window.location.replace('https://kino-react.herokuapp.com/filmy/')
+                                 );
                 },
                 error => {
                     const resMessage =
