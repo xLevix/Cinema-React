@@ -173,7 +173,7 @@ export default function SubFilm(props) {
                             seanse.filter((seans) => {
                                 return new Date(seans.date) > new Date();
                             }).map((seans) => {
-                                return <option key={seans.id} value={seans.id}>{new Intl.DateTimeFormat('pl-pl', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date(seans.date))}</option>
+                                 return <option key={seans.id} value={seans.id}>{new Intl.DateTimeFormat('pl-pl', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date(seans.date))  + '   |   ' + 'Cena: ' + seans.price + ' zl' }</option>
                             }
                             )
                         )}
