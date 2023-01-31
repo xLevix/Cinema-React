@@ -62,7 +62,7 @@ export default function Rezerwacje() {
                                 <CardBody>
                                     <Image
                                         src={grouped[key][0].idScreening.idMovie.image}
-                                        alt='Green double couch with wooden legs'
+                                        alt='Brak obrazka'
                                         borderRadius='lg'
                                     />
                                     <Stack mt='6' spacing='3'>
